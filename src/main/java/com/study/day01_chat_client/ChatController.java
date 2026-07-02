@@ -25,4 +25,9 @@ public class ChatController {
     public String teacher(@RequestParam String message) {
         return chatService.teacher(message);
     }
+
+    @GetMapping("/api/safe-chat")
+    public String safeChat(String message) {
+        return chatService.safeChat(message);
+    }
 }

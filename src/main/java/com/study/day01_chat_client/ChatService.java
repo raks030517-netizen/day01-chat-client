@@ -1,6 +1,7 @@
 package com.study.day01_chat_client;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.google.genai.GoogleGenAiChatOptions;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,4 +36,19 @@ public class ChatService {
                 .call()
                 .content();
     }
+
+    // 기준을 강화한 옵션 챗
+    public String safeChat(String message) {
+        return chatClient.prompt()
+                .user(message)
+                .options(GoogleGenAiChatOptions.builder()
+                        .temperature(0.2)   // 기준 강화
+                )
+                .call()
+                .content();
+    }
 }
+
+
+
+
