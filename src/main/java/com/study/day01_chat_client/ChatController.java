@@ -20,4 +20,9 @@ public class ChatController {
     public String chat(@RequestParam String message) {
         return chatService.chat(message);
     }
+
+    @GetMapping("/api/teacher")
+    public String teacher(@RequestParam String message) {
+        return chatService.teacher(message);
+    }
 }
